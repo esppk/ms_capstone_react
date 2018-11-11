@@ -1,0 +1,16 @@
+.activeLink {
+    color: #333;
+    text-shadow: 1px 0 2px #eee;
+}
+
+a {
+    color: rgb(228, 196, 196);
+    text-decoration: none;
+    font-family: "system-ui", Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif
+}
