@@ -21,16 +21,14 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <HeaderComp />
-          <ul>
-            {this.props.products.map(d => (
-              <li>
-                <img src={d.imagelink} alt={d.name} height="42" width="42" />{" "}
-                {d.name}
-              </li>
-            ))}
-          </ul>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route
+              exact
+              path="/"
+              component={() => (
+                <Home products={this.props.products.slice(0, 5)} />
+              )}
+            />
             <Route path="/about" component={About} />
           </Switch>
         </div>
