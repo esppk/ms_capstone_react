@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
 import "./home.css";
 
 class Home extends Component {
@@ -16,7 +17,7 @@ class Home extends Component {
   showSlide(idx) {
     return () => {
       this.setState({ slideIdx: idx });
-      console.log(this.state.slideIdx);
+      // console.log(this.state.slideIdx);
       return null;
     };
   }
@@ -42,27 +43,43 @@ class Home extends Component {
   }
 
   render() {
+    const slides = this.props.products.map((d, idx) => {
+      let slideClass = "slide fade";
+      if (idx === this.state.slideIdx) {
+        slideClass = "slide fade activeSlide";
+      } else {
+        slideClass = "slide fade";
+      }
+      return (
+        <div
+          className={slideClass}
+          key={d.name}
+          onClick={() => {
+            this.props.history.push(`/products/${this.state.slideIdx}`);
+          }}
+        >
+          <img
+            src={d.imagelink}
+            alt={d.name}
+            style={{ height: "50vh", margin: "auto", display: "block" }}
+          />
+          <div className="text">{d.name}</div>
+        </div>
+      );
+    });
+
+    const dotClass = idx => {
+      if (idx === this.state.slideIdx) {
+        return "dot active";
+      } else {
+        return "dot";
+      }
+    };
+
     const carousel = (
       <div>
         <div className="carousel-container" style={{ height: "50vh" }}>
-          {this.props.products.map((d, idx) => {
-            let slideClass = "slide fade";
-            if (idx === this.state.slideIdx) {
-              slideClass = "slide fade activeSlide";
-            } else {
-              slideClass = "slide fade";
-            }
-            return (
-              <div className={slideClass} key={d.name}>
-                <img
-                  src={d.imagelink}
-                  alt={d.name}
-                  style={{ height: "50vh", margin: "auto", display: "block" }}
-                />
-                <div className="text">{d.name}</div>
-              </div>
-            );
-          })}
+          {slides}
 
           <a className="prev" onClick={this.goNext}>
             &#10094;
@@ -73,11 +90,9 @@ class Home extends Component {
         </div>
 
         <div style={{ textAlign: "center" }}>
-          <span className="dot" onClick={this.showSlide(0)} />
-          <span className="dot" onClick={this.showSlide(1)} />
-          <span className="dot" onClick={this.showSlide(2)} />
-          <span className="dot" onClick={this.showSlide(3)} />
-          <span className="dot" onClick={this.showSlide(4)} />
+          {[0, 1, 2, 3, 4].map(idx => (
+            <span className={dotClass(idx)} onClick={this.showSlide(idx)} />
+          ))}
         </div>
       </div>
     );
@@ -93,4 +108,6 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const HomeWithRouter = withRouter(Home);
+
+export default HomeWithRouter;
