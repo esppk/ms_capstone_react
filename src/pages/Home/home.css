@@ -10,6 +10,7 @@
 
 .slide {
     display: none;
+    cursor: pointer;
 }
 
 .prev,
@@ -83,4 +84,49 @@
     to {
         opacity: 1
     }
+}
+
+.hero {
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.hero button {
+    width: 30vw;
+    height: 3rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2.5rem;
+    color: rgb(63, 58, 58);
+    text-shadow: 1px 1px 2px #333;
+    background-color: white;
+    border-radius: 2px;
+    border-style: none;
+    transition: all 0.3s
+}
+
+.hero button:hover {
+    transform: rotate(-15deg);
+    background-color: teal;
+    color: white;
+    padding-bottom: 2rem;
+    cursor: pointer;
+    box-shadow: 10px 11px 36px #000000;
+}
+
+.hero button:active {
+    transform: rotate(-15deg);
+    background-color: teal;
+    color: white;
+    padding-bottom: 2rem;
+    cursor: pointer;
+    box-shadow: 6px 6px 13px #000000;
+    border: none;
+}
+
+button:focus {
+    outline: none;
 }

@@ -100,7 +100,7 @@ class Home extends Component {
     return (
       <section>
         {carousel}
-        <div>
+        <div className="hero">
           <button>Go To Shopping</button>
         </div>
       </section>
