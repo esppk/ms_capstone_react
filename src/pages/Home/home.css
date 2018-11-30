@@ -95,9 +95,10 @@
 
 }
 
-.hero button {
+.hero a {
     width: 30vw;
     height: 3rem;
+    text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 2.5rem;
     color: rgb(63, 58, 58);
@@ -108,7 +109,7 @@
     transition: all 0.3s
 }
 
-.hero button:hover {
+.hero a:hover {
     transform: rotate(-15deg);
     background-color: teal;
     color: white;
@@ -117,7 +118,7 @@
     box-shadow: 10px 11px 36px #000000;
 }
 
-.hero button:active {
+.hero a:active {
     transform: rotate(-15deg);
     background-color: teal;
     color: white;
@@ -127,6 +128,6 @@
     border: none;
 }
 
-button:focus {
+a:focus {
     outline: none;
 }

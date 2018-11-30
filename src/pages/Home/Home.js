@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
 import "./home.css";
 
 class Home extends Component {
@@ -91,7 +92,11 @@ class Home extends Component {
 
         <div style={{ textAlign: "center" }}>
           {[0, 1, 2, 3, 4].map(idx => (
-            <span className={dotClass(idx)} onClick={this.showSlide(idx)} />
+            <span
+              className={dotClass(idx)}
+              onClick={this.showSlide(idx)}
+              key={idx}
+            />
           ))}
         </div>
       </div>
@@ -101,7 +106,7 @@ class Home extends Component {
       <section>
         {carousel}
         <div className="hero">
-          <button>Go To Shopping</button>
+          <Link to="/products">Go To Shopping</Link>
         </div>
       </section>
     );

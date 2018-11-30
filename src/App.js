@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import HeaderComp from "./extraComponents/HeaderComp";
 import SingleProd from "./pages/SingleProd/SingleProd";
+import ProdList from "./pages/ProdList/ProdList";
 import { mapDispatchToProps, mapStateToProps } from "./reducers/receivedData";
 import { connect } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -31,7 +32,11 @@ class App extends Component {
               )}
             />
             <Route path="/about" component={About} />
-            <Route path="/products/:id" component={SingleProd} />
+            <Route path="/products/:id" component={SingleProd} />} />
+            <Route
+              path="/products"
+              component={() => <ProdList products={this.props.products} />}
+            />
           </Switch>
         </div>
       </BrowserRouter>

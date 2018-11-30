@@ -1,0 +1,21 @@
+h1 {
+    margin-left: 10rem;
+}
+
+.prodGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-rows: repeat(5, 25rem);
+}
+
+.prodGrid>div {
+    margin: 1rem;
+}
+
+
+
+.prodContainer {
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+}
