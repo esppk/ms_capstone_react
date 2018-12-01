@@ -5,7 +5,7 @@ h1 {
 .prodGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    grid-template-rows: repeat(5, 25rem);
+    grid-template-rows: repeat(4, 25rem);
 }
 
 .prodGrid>div {
@@ -18,4 +18,31 @@ h1 {
     padding: 3rem;
     display: grid;
     grid-template-columns: 20rem 1fr;
+}
+
+.pageNum {
+    padding: 0.5rem;
+    border: 1px solid #777;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.3rem;
+    cursor: pointer;
+
+}
+
+.pageNum.active {
+    background: teal;
+    color: wheat;
+}
+
+.pageNum:hover {
+    background: #777;
+    color: greenyellow;
+}
+
+.pageControl {
+    margin-left: 23vw;
+    margin-top: 1rem;
+    display: block;
 }
