@@ -33,8 +33,14 @@ class ProdList extends Component {
           <div className="prodGrid">
             {this.props.products
               .slice((this.state.curPage - 1) * 12, this.state.curPage * 12)
-              .map(prod => {
-                return <Card name={prod.name} imagelink={prod.imagelink} />;
+              .map((prod, idx) => {
+                return (
+                  <Card
+                    name={prod.name}
+                    imagelink={prod.imagelink}
+                    id={(this.state.curPage - 1) * 12 + idx}
+                  />
+                );
               })}
           </div>
           <div className="pageControl">
